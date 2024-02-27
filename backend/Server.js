@@ -1,21 +1,26 @@
 const express=require ("express");
 const app=express();
 const cors=require("cors");
-
-
+const dotenv=require("dotenv");
+require("dotenv").config(".env");
 
 
 //import routes
-const authRoute=require('./routers/index');
 
 // middleware
+
+console.log(process.env.MONGODB)
 app.use(cors());
+
 app.use(express.json());
-app.use('/api', authRoute);
+const authRoute=require('./routers/index');
+app.use('/api', authRoute)
+
+
 app.get("/",(req)=>{
     console.log("ggg")
 })
 
 
-const PORT=4000;
+const PORT=3005;
 app.listen(PORT, function(){console.log("server running on port:" + PORT);});

@@ -5,8 +5,13 @@ const jwt=require("jsonwebtoken")
 
 
 // const dbURI = 'mongodb://localhost:27017/authorize';
-const dbURI = "mongodb+srv://poorni22:2YCZOikgCMESOEnc@cluster0.b58qvdy.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-mongoose.connect(dbURI)
+console.log("error",process.env.MONGODB)
+mongoose
+.connect(`${process.env.MONGODB}`,{
+    useNewUrlParser:true,
+    useUnifiedTopology:true,
+}).then(() => {console.log("Connected to mongoDB...",process.env.MONGODB)}
+)
 
 
 exports.register= async(req,res)=>{
@@ -28,7 +33,8 @@ exports.register= async(req,res)=>{
         const token = jwt.sign(req.body, "secret");
         res.status(200).send({"status":"success","token":token})
      }).catch((err)=>{
-           console.log(err);
+           console.log("g",err);
+           res.status(500).send("connection error")
         })
     
     }
