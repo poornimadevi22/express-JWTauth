@@ -5,7 +5,7 @@ const jwt=require("jsonwebtoken")
 
 
 // const dbURI = 'mongodb://localhost:27017/authorize';
-console.log("error",process.env.MONGODB)
+console.log("url",process.env.MONGODB)
 mongoose
 .connect(`${process.env.MONGODB}`,{
     useNewUrlParser:true,

@@ -22,7 +22,7 @@ app.get("/",(req)=>{
 })
 
 
-const PORT=3005;
+const PORT=process.env.PORT;
 app.listen(PORT, function(){console.log("server running on port:" + PORT);});
 
 
