@@ -12,7 +12,7 @@ const Login = () => {
    e.preventDefault()
    
    axios
-   .post("http://localhost:3005/api/login", { email, password })
+   .post("https://jwt-auth-i9r8.onrender.com/api/login", { email, password })
    .then(result => {
      console.log(result);
      navigate("/home");

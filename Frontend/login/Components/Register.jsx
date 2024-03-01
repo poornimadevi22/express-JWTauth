@@ -15,7 +15,7 @@ const RegisterPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     axios
-    .post("http://localhost:3005/api/register", { name, email, password })
+    .post("https://jwt-auth-i9r8.onrender.com/api/register", { name, email, password })
     .then(result => {
       console.log(result);
       navigate("/login");
