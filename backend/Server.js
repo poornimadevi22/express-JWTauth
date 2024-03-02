@@ -17,8 +17,9 @@ const authRoute=require('./routers/index');
 app.use('/api', authRoute)
 
 
-app.get("/",(req)=>{
+app.get("/",(req,res)=>{
     console.log("ggg")
+    res.status(200).json({msg:"Authorization using JWT"})
 })
 
 
